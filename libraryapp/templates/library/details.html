@@ -1,0 +1,14 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+
+<h1>{{ library.title }}</h1>
+<h2>Address: {{ library.address }}</h2>
+
+<form action="{% url 'libraryapp:library' library.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE">
+    <button>Delete</button>
+</form>
+
+{% endblock %}
